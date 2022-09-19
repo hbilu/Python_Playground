@@ -1,3 +1,24 @@
+
+"""
+Check for BST (Binary Search Tree)
+
+Given the root of a binary tree. Check whether it is a BST or not.
+Note: We are considering that BSTs can not contain duplicate Nodes.
+
+A BST is defined as follows:
+-> The left subtree of a node contains only nodes with keys less than the node's key.
+-> The right subtree of a node contains only nodes with keys greater than the node's key.
+-> Both the left and right subtrees must also be binary search trees.
+
+The Task:
+The task is to complete the function isBST() which takes the root of the tree as a parameter
+and returns true if the given binary tree is BST, else returns false.
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(Height of the BST).
+
+"""
+
 class Solution:
 
     def checkBST(self, root, MIN, MAX):
