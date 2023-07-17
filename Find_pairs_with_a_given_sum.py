@@ -24,5 +24,5 @@ def allPairs(self, A, B, N, M, X):
             index += 1
         else:
             index2 -= 1
-    combination.sort(reverse=False, key=lambda x: x[0])
+    # combination.sort(reverse=False, key=lambda x: x[0]) -- this code is removed because sorted arrays are used
     return combination
