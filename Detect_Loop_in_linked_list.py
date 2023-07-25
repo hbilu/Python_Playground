@@ -16,6 +16,7 @@ class Node:
         self.data = data
         self.next = None
 
+# first soluiton
 class Solution:
     # Function to check if the linked list has a loop.
     def detectLoop(self, head):
@@ -27,3 +28,18 @@ class Solution:
             if front == tail:
                 return True
         return False
+
+# second solution: using hashing
+class Solution:
+    #Function to check if the linked list has a loop.
+    def detectLoop(self, head):
+        hashset = set()
+        temp = head
+        while (temp != None):
+            if temp in hashset:
+                return True
+            else:
+                hashset.add(temp)
+                temp = temp.next
+        return False
+
