@@ -16,7 +16,7 @@ class Node:
         self.data = data
         self.next = None
 
-# first soluiton
+# first soluiton with Floyd’s Cycle-Finding Algorithm
 class Solution:
     # Function to check if the linked list has a loop.
     def detectLoop(self, head):
@@ -43,3 +43,12 @@ class Solution:
                 temp = temp.next
         return False
 
+# third solution: the __init__ constructor of class Node should have a flag attribute (self.flag = 0)
+    def detectLoop(self, head):
+        while (head != None):
+            if head.flag == 1:
+                return True
+            else:
+                head.flag = 1
+                head = head.next
+        return False

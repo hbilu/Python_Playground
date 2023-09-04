@@ -17,6 +17,7 @@ class node:
 
 class Solution:
     #  Should return data of middle node. If linked list is empty, then  -1
+    # first solution
     def findMid(self, head):
         D = []
         temp = head
@@ -24,3 +25,25 @@ class Solution:
             D.append(temp.data)
             temp=temp.next
         return D[int(len(D)/2)]
+
+    # second solution
+    def findMid(self, head):
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow.data
+
+    # third solution
+    def findMid(self, head):
+        count = 0
+        middle = head
+        while head:
+            # if count is an odd number:
+            # 'count&1' evaluates to true if the last bit in the binary form of 'count' is equal to 1
+            if count & 1:
+                middle = middle.next
+            count += 1
+            head = head.next
+        return middle.data
