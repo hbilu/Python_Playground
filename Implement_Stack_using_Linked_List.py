@@ -23,12 +23,9 @@ class MyStack:
 
     # Function to push an integer into the stack.
     def push(self, data):
-        if self.head == None:
-            self.head = StackNode(data)
-        else:
-            newnode = StackNode(data)
-            newnode.next = self.head
-            self.head = newnode
+        newnode = StackNode(data)
+        newnode.next = self.head
+        self.head = newnode
 
     # Function to remove an item from top of the stack.
     def pop(self):
