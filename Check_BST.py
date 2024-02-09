@@ -18,7 +18,7 @@ Expected Time Complexity: O(N).
 Expected Auxiliary Space: O(Height of the BST).
 
 """
-
+# first way
 class Solution:
 
     def checkBST(self, root, MIN, MAX):
@@ -33,3 +33,26 @@ class Solution:
         INT_MIN = -4294967296
         return self.checkBST(root, INT_MIN, INT_MAX)
 
+
+# second way: if InOrder traversal of BST is sorted, it is BST
+class Solution:
+    def isBST(self, root):
+        stack = []
+        arr = []
+        if root==None:
+            return
+        current = root
+        while (True):
+            if current:
+                stack.append(current)
+                current = current.left
+            elif stack:
+                current = stack.pop()
+                arr.append(current.data)
+                current = current.right
+            else:
+                break
+        for i in range(1,len(arr)):
+            if arr[i]<=arr[i-1]:
+                return False
+        return True

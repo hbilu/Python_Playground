@@ -27,17 +27,23 @@ class Node:
 
 
 # Function to find the minimum element in the given BST.
-
 def inorder(root, arr):
     if not root:
         return
     inorder(root.left, arr)
     arr.append(root.data)
     inorder(root.right, arr)
-
 def minValue(root):
     if root == None:
         return -1
     arr = []
     inorder(root, arr)
     return min(arr)
+
+# second way
+def minValue(root):
+    if not root:
+        return -1
+    if root.left is None:
+        return root.data
+    return minValue(root.left)
