@@ -34,3 +34,19 @@ class Solution:
                     visited[i] == True
                     q.append(i)
         return result
+
+
+# if the number of vertices not known
+    def bfsOfGraph(self, V: int, adj: List[List[int]]) -> List[int]:
+        visited = []
+        result = []
+        q = [0]
+        while q:
+            vertex = q.pop(0)
+            if vertex not in visited:
+                visited.append(vertex)
+                result.append(vertex)
+            for i in adj[vertex]:
+                if i not in visited:
+                    q.append(i)
+        return result

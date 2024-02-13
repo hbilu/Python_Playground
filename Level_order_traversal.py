@@ -17,6 +17,7 @@ Constraints:
 1 ≤ Data of a node ≤ 105
 """
 
+# first way
 class Solution:
     def height(self, root):
         if root == None:
@@ -39,3 +40,20 @@ class Solution:
             self.currentLevel(root, i, arr)
             1
         return arr
+
+
+# second way
+    def levelOrder(self, root):
+        if not root:
+            return []
+        q = []  # queue for nodes
+        q.append(root)
+        ans = []  # list for data
+        while len(q) > 0:
+            ans.append(q[0].data)
+            temp = q.pop(0)
+            if temp.left:
+                q.append(temp.left)
+            if temp.right:
+                q.append(temp.right)
+        return ans
