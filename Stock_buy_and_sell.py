@@ -17,6 +17,7 @@ Expected Auxiliary Space: O(N)
 
 """
 
+# O(N*N) complexity
 def stockBuySell(self, A, n):
     if n == 1:
         return []
@@ -34,3 +35,24 @@ def stockBuySell(self, A, n):
         s = i - 1
         pairs.append([b, s])
     return pairs
+
+# O(N) Complexity
+class Solution:
+    def stockBuySell(self, A, n):
+        buyFlag=1
+        buy=0
+        sell=0
+        result=[]
+        for i in range(n-1):
+            if buyFlag==1:
+                if A[i]<A[i+1]:
+                    buy=i
+                    buyFlag=0
+            if buyFlag==0:
+                if A[i]>A[i+1]:
+                    sell=i
+                    buyFlag=1
+                    result.append([buy,sell])
+        if buyFlag==0:
+            result.append([buy,n-1])
+        return result

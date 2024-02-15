@@ -31,7 +31,8 @@ Constraints:
 import heapq
 from collections import defaultdict, deque
 
-
+import heapq
+from collections import defaultdict, deque
 class Solution:
     def shortestRange(self, root):
         heap = []
