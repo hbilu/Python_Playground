@@ -27,3 +27,36 @@ class Solution:
 	        elif k>arr[middle]:
 	            low=middle+1
         return -1
+"""
+ Updates on the problem: 
+ - If multiple occurrences are there, please return the smallest index.
+ - Try to solve this problem in constant space i.e O(1)
+"""
+# updated solution:
+class Solution:
+    def binarysearch(self, arr, k):
+        n = len(arr)
+        left = 0
+        right = n-1
+        index = -1
+        while left<=right:
+            mid = (left+right)//2
+            if arr[mid] == k:
+                index = mid
+                right = mid-1
+            elif arr[mid]>k:
+                right = mid-1
+            else: # arr[mid] > k
+                left = mid+1
+        return index
+
+# ------- Driver code of geekforgeeks -----------
+if __name__ == "__main__":
+    t = int(input())
+    for _ in range(t):
+        k = int(input())
+        arr = list(map(int, input().split()))
+        ob = Solution()
+        res = ob.binarysearch(arr, k)
+        print(res)
+        print("~")
