@@ -30,7 +30,6 @@ class IntArray:
     def Input(self, n):
         arr = [int(i) for i in input().strip().split()]  #array input
         return arr
-
     def Print(self, arr):
         for i in arr:
             print(i, end=" ")
