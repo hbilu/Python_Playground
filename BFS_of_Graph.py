@@ -50,3 +50,18 @@ class Solution:
                 if i not in visited:
                     q.append(i)
         return result
+
+# ------- Driver code of geekforgeeks -----------
+if __name__ == '__main__':
+    T = int(input())  # Number of test cases
+    for i in range(T):
+        V = int(input())  # Number of vertices
+        E = int(input())  # Number of edges
+        adj = [[] for i in range(V)]  # Adjacency list
+        for _ in range(E):
+            u, v = map(int, input().split())
+            adj[u].append(v)
+            adj[v].append(u)  # Undirected graph
+        ob = Solution()
+        ans = ob.bfsOfGraph(adj)
+        print(" ".join(map(str, ans)))  # Print the BFS traversal result
